@@ -59,9 +59,7 @@ class ListMoviesBaseViewModel:FavouriteMoviesListViewModel{
     
     
     func getMovies(type:String){
-        if pageNumber == numberOfPages{
-            return
-        }
+        
         NetworkLayer.request(path: type,pageNumber:pageNumber, method: .get,  model: [MoviesModel].self, showLoading: true) { (response, message, isDone) in
             if isDone ?? false{
 //                let x = self.reteriveFavouriteMovies()
@@ -91,6 +89,9 @@ class ListMoviesBaseViewModel:FavouriteMoviesListViewModel{
     
     
     func loadMoreMovies(){
+        if pageNumber == numberOfPages{
+            return
+        }
         if moviesListType != .favMovies{
             pageNumber += 1
             getMovies(type:listType)

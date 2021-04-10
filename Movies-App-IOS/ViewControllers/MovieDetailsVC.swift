@@ -26,19 +26,11 @@ class MovieDetailsVC: UIViewController {
     @IBOutlet weak var addAndRemoveBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        movieDetailsViewModel = MovieDetailsViewModel(movie: movie)
         setupUI()
-        movieDetailsViewModel.genersString.bind(to: genersLabel.rx.text).disposed(by: disposeBag)
-        movieDetailsViewModel.description.bind(to: descriptionLabel.rx.text).disposed(by: disposeBag)
-        movieDetailsViewModel.showFavBtn.bind(to: addAndRemoveBtn.rx.isHidden).disposed(by: disposeBag)
-        movieDetailsViewModel.addOrRemoveBtnTitle.bind(to: addAndRemoveBtn.rx.title()).disposed(by: disposeBag)
-        
-        
-        // Do any additional setup after loading the view.
+
     }
     override func viewDidAppear(_ animated: Bool) {
         movieDetailsViewModel = MovieDetailsViewModel(movie: movie)
-        setupUI()
         movieDetailsViewModel.genersString.bind(to: genersLabel.rx.text).disposed(by: disposeBag)
         movieDetailsViewModel.description.bind(to: descriptionLabel.rx.text).disposed(by: disposeBag)
         movieDetailsViewModel.showFavBtn.bind(to: addAndRemoveBtn.rx.isHidden).disposed(by: disposeBag)
