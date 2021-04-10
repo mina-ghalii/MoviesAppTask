@@ -8,7 +8,6 @@
 import UIKit
 import RxCocoa
 import RxSwift
-import Kingfisher
 import UIScrollView_InfiniteScroll
 import Realm
 import RealmSwift
